@@ -1,0 +1,118 @@
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<script type="text/javascript" src="./index.js"></script>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+/>
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+  onload="window.$ = window.jQuery = module.exports;"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube DL</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>YouTube DL GUI - Beta</h1>
+      <p>~By: Stanley Li</p>
+    </header>
+    <div class="row">
+      <div class="input-group col">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">Media Url</div>
+          <input style="width: 400px" id="videoUrl" type="text" />
+        </div>
+      </div>
+      <div class="input-group col">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon">Location</div>
+          <input style="width: 300px" id="browseValue" type="text" />
+          <button id="browseBtn" class="btn btn-warning">Browse</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <div class="btn-group">
+        <button
+          style="width: 200px;"
+          id="formatBtn"
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Media Format
+        </button>
+        <div class="dropdown-menu">
+          <div>Video</div>
+          <div id="mp4" class="dropdown-item">mp4</div>
+          <div id="webm" class="dropdown-item">webm</div>
+          <div id="flv" class="dropdown-item">flv</div>
+          <div id="3gp" class="dropdown-item">3gp</div>
+          <div>Audio</div>
+          <div id="mp3" class="dropdown-item">mp3</div>
+          <div id="m4a" class="dropdown-item">m4a</div>
+          <div id="vorbis" class="dropdown-item">vorbis</div>
+        </div>
+      </div>
+
+      <button id="updateBtn" class="options btn btn-info">Update</button>
+      <button id="clearBtn" class="options btn btn-danger">Clear Queue</button>
+      <button id="addBtn" type="button" class="options btn btn-success">
+        Add to Queue
+      </button>
+    </div>
+    <div class="options custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="toggleQueue" />
+      <label
+        data-toggle="tooltip"
+        title="Enable to download one by one"
+        class="custom-control-label"
+        for="toggleQueue"
+        >Queue Downloads</label
+      >
+    </div>
+
+    <div class="containerDownloads">
+      <table class="table table-sm table-striped table-hover">
+        <tbody id="downloadQueue">
+          <tr style="text-align: center">
+            <th style="width: 30%">Media Url</th>
+            <th style="width: 10%">Ext.</th>
+            <th style="width: 25%">Status</th>
+            <th style="width: 15%">Download Speed</th>
+            <th style="width: 10%">File Size</th>
+            <th style="width: 10%">Remove</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="optionBtn">
+      <button id="downloadBtn" class="btn btn-primary">Start Download</button>
+      <button id="stop" class="btn btn-danger">Stop All</button>
+    </div>
+
+    <!-- modal not yet used -->
+    <div
+      id="modalUpdate"
+      style="display: none; margin: auto; height: 100px; width: 100px; background: black;"
+    ></div>
+
+    <!-- javascript import -->
+    <script>
+      require("./index.js");
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+  </body>
+</html>
